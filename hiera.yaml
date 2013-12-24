@@ -1,0 +1,13 @@
+---
+:backends:
+  - json
+
+:json:
+  :datadir: /etc/puppet/hieradata
+
+:hierarchy:
+  - env/%{::environment}/geo_location/%{::geo_location}/stores/%{::store_number}   # ex. /etc/puppet/hieradata/env/dev/geo_location/na/stores/0001.json
+  - env/%{::environment}/geo_location/%{::geo_location}                          # ex. /etc/puppet/hieradata/env/dev/geo_location/na.json
+  - env/%{::environment}                                                         # ex. /etc/puppet/hieradata/env/dev.json
+  - common                                                                       # ex. /etc/puppet/hieradata/common.json   
+
