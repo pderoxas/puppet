@@ -14,16 +14,4 @@ describe 'sdk' do
     })
   end
 
-  #make sure it creates the sdk directory
-  it do
-    should contain_file('sdkdir').with({
-      'ensure'  => 'directory',
-      'source'  => 'puppet:///modules/sdk',
-      'owner'   => 'root',
-      'group'   => 'root',
-      'recurse' => true,
-      'purge'   => true,
-    })
-  end
-
 end
