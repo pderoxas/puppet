@@ -6,7 +6,7 @@ class sdk::java ($java_sdk_version) {
   }
 
   #binary file
-  $path = "/paypal/java-sdk"
+  $path = "/paypal/sdk"
   file { "javasdkdir":
     ensure  => "directory",
     path    => $path,
@@ -21,7 +21,7 @@ class sdk::java ($java_sdk_version) {
   #sdk version info file
   file { "sdk_version_file":
     ensure   => "file",
-    path     => "/paypal/java-sdk/$java_sdk_version.txt",
+    path     => "/paypal/sdk/$java_sdk_version.txt",
     owner    => "root",
     group    => "root",
     require  => File['javasdkdir'],
