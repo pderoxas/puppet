@@ -1,12 +1,30 @@
-class sdk::java inherits sdk {
+class sdk::java inherits sdk ($java_sdk_version) {
   #any java specific implementation can go here...
 
-  file { "java_readme":
+  notify {"Java SDK Version: $java_sdk_version ":
+    withpath => true,
+  }
+
+  #binary file
+  $path = "/paypal/java-sdk"
+  file { "javasdkdir":
+    ensure  => "directory",
+    path    => $path,
+    source  => "puppet:///sdk_repo/$java_sdk_version",
+    owner   => "root",
+    group   => "root",
+    recurse => true,
+    purge   => true,
+    require => File['basedir'],
+  }
+
+  #sdk version info file
+  file { "sdk_version_file":
     ensure   => "file",
-    path     => "/paypal/sdk/readme.txt",
-    content  => "This is just some java specific stuff...",
+    path     => "/paypal/java-sdk/$java_sdk_version.txt",
     owner    => "root",
     group    => "root",
-    require  => File['sdkdir'],
+    require  => File['javasdkdir'],
   }
+
 }
