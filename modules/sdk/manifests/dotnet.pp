@@ -21,7 +21,7 @@ class sdk::dotnet ($dotnet_sdk_version) {
   #sdk version info file
   file { "dotnet_sdk_version_file":
     ensure   => "file",
-    path     => "/paypal/net-sdk/$dotnet_sdk_version.txt",
+    path     => "/paypal/dotnet-sdk/$dotnet_sdk_version.txt",
     owner    => "root",
     group    => "root",
     require  => File['dotnetsdkdir'],
