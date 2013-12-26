@@ -10,7 +10,7 @@ class sdk::java ($java_sdk_version) inherits sdk  {
   file { "javasdkdir":
     ensure  => "directory",
     path    => $path,
-    source  => "puppet:///sdk_repo/$java_sdk_version",
+    source  => "puppet:///java_sdk_repo/$java_sdk_version",
     owner   => "root",
     group   => "root",
     recurse => true,
