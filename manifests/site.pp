@@ -42,9 +42,9 @@ node default {
   
   $sdk_platform = hiera('sdk_platform')
   case $sdk_platform {
-      'java':     { class {'sdk::java' : java_sdk_version => hiera('sdk_version') }
-      'net':      { class {'sdk::dotnet' : dotnet_sdk_version => hiera('sdk_version') }
-      default:    { class {'sdk::java' : java_sdk_version => hiera('sdk_version') }
+      'java':     { class {'sdk::java' : java_sdk_version => hiera('sdk_version') } }
+      'net':      { class {'sdk::dotnet' : dotnet_sdk_version => hiera('sdk_version') } }
+      default:    { class {'sdk::java' : java_sdk_version => hiera('sdk_version') } }
     }
   
 }
