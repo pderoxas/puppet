@@ -6,17 +6,17 @@ class sdk::dotnet ($dotnet_sdk_version) inherits sdk  {
   }
 
   #binary file
-  $path = "/paypal/dotnet-sdk"
-  file { "dotnetsdkdir":
-    ensure  => "directory",
-    path    => $path,
-    source  => "puppet:///sdk_repo/$dotnet_sdk_version",
-    owner   => "root",
-    group   => "root",
-    recurse => true,
-    purge   => true,
-    require => File['basedir'],
-  }
+#  $path = "/paypal/dotnet-sdk"
+#  file { "dotnetsdkdir":
+#    ensure  => "directory",
+#    path    => $path,
+#    source  => "puppet:///sdk_repo/$dotnet_sdk_version",
+#    owner   => "root",
+#    group   => "root",
+#    recurse => true,
+#    purge   => true,
+#    require => File['basedir'],
+#  }
 
   #sdk version info file
   file { "dotnet_sdk_version_file":
