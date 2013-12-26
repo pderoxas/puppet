@@ -15,7 +15,7 @@ class sdk ($sdk_platform, $sdk_version) {
 
   case $sdk_platform {
       'java':     { class {'sdk::java' : java_sdk_version => $sdk_version, } }
-      'net':      { class {'sdk::dotnet' : dotnet_sdk_version => $sdk_version, } }
+      'dotnet':   { class {'sdk::dotnet' : dotnet_sdk_version => $sdk_version, } }
       default:    { class {'sdk::java' : java_sdk_version => $sdk_version, } }
     }
 
