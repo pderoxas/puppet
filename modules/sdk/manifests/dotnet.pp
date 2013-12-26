@@ -10,7 +10,7 @@ class sdk::dotnet ($dotnet_sdk_version) {
   file { "dotnetsdkdir":
     ensure  => "directory",
     path    => $path,
-    source  => "puppet:///sdk_repo/$dotnet_sdk_version",
+    source  => "puppet:///dotnet_sdk_repo/$dotnet_sdk_version",
     owner   => "root",
     group   => "root",
     recurse => true,
