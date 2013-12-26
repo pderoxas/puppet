@@ -19,7 +19,7 @@ class sdk::java ($java_sdk_version) {
   }
 
   #sdk version info file
-  file { "sdk_version_file":
+  file { "java_sdk_version_file":
     ensure   => "file",
     path     => "/paypal/sdk/$java_sdk_version.txt",
     owner    => "root",
