@@ -1,4 +1,4 @@
-class sdk::dotnet ($dotnet_sdk_version) inherits sdk  {
+class sdk::dotnet ($dotnet_sdk_version) {
   #any .NET specific implementation can go here...
 
   notify {".NET SDK Version: $dotnet_sdk_version ":
@@ -26,5 +26,4 @@ class sdk::dotnet ($dotnet_sdk_version) inherits sdk  {
     group    => "root",
     require  => File['dotnetsdkdir'],
   }
-
 }
