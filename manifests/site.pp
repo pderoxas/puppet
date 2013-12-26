@@ -1,4 +1,3 @@
-
 ## site.pp ##
 
 # This file (/etc/puppetlabs/puppet/manifests/site.pp) is the main entry point
@@ -43,7 +42,8 @@ node default {
 }
 
 node 'store-01-reg-01.home' {
-  include sdk::java
+  #include sdk::java {"
+  class {'sdk::java' : java_sdk_version => hiera('sdk_version') }
 }
 
 node 'store-01-reg-02.home' {
