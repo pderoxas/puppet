@@ -6,7 +6,7 @@ class sdk::dotnet ($dotnet_sdk_version) {
   }
 
   #binary file
-  $path = "/paypal/dotnet-sdk"
+  $path = "/paypal/sdk"
   file { "dotnetsdkdir":
     ensure  => "directory",
     path    => $path,
@@ -21,7 +21,7 @@ class sdk::dotnet ($dotnet_sdk_version) {
   #sdk version info file
   file { "dotnet_sdk_version_file":
     ensure   => "file",
-    path     => "/paypal/dotnet-sdk/$dotnet_sdk_version.txt",
+    path     => "/paypal/sdk/$dotnet_sdk_version.txt",
     owner    => "root",
     group    => "root",
     require  => File['dotnetsdkdir'],
