@@ -13,28 +13,17 @@ class sdk {
     purge   => true,
   }
 
-#  #binary file
-#  $path = "/paypal/sdk"
-#  file { "sdkdir":
-#    ensure  => "directory",
-#    path    => $path,
-#    source  => "puppet:///sdk_repo/$sdk_version",
-#    owner   => "root",
-#    group   => "root",
-#    recurse => true,
-#    purge   => true,
-#    require => File['basedir'],
-#  }
+  $sdk_platform = hiera('sdk_platform')
+  
+  notify {"SDK Platform: $sdk_platform ":
+    withpath => true,
+  }
 
-#  #sdk version info file
-#  file { "sdk_version_file":
-#    ensure   => "file",
-#    path     => "/paypal/sdk/sdk_version.txt",
-#    content  => $sdk_version,
-#    owner    => "root",
-#    group    => "root",
-#    require  => File['sdkdir'],
-#  }
+  case $sdk_platform {
+      'java':     { Class['sdk::java'] { java_sdk_version => hiera('sdk_version') } }
+      'net':      { Class['sdk::dotnet'] { dotnet_sdk_version => hiera('sdk_version') } }
+      default:    { Class['sdk::java'] { java_sdk_version => hiera('sdk_version') } }
+    }
 
 }
 
