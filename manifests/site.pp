@@ -39,16 +39,20 @@ node default {
   # This is where you can declare classes for all nodes.
   # Example:
   #   class { 'my_class': }
+  
+  $sdk_platform = hiera('sdk_platform')
+  case $sdk_platform {
+      'java':     { class {'sdk::java' : java_sdk_version => hiera('sdk_version') }
+      'net':      { class {'sdk::dotnet' : dotnet_sdk_version => hiera('sdk_version') }
+      default:    { class {'sdk::java' : java_sdk_version => hiera('sdk_version') }
+    }
+  
 }
 
 node 'store-01-reg-01.home' {
-  class {'sdk::java' : 
-          java_sdk_version => hiera('sdk_version') 
-        }
+  #class {'sdk::java' : java_sdk_version => hiera('sdk_version') }
 }
 
 node 'store-01-reg-02.home' {
-  class {'sdk::java' : 
-          java_sdk_version => hiera('sdk_version') 
-        }
+  #class {'sdk::java' : java_sdk_version => hiera('sdk_version') }
 }
