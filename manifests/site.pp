@@ -40,7 +40,10 @@ node default {
   # Example:
   #   class { 'my_class': }
   
-  class {'sdk' : sdk_platform => hiera('sdk_platform') }
+  class {'sdk' : 
+          sdk_platform => hiera('sdk_platform'),
+          sdk_version => hiera('sdk_version'),
+        }
   
 }
 
