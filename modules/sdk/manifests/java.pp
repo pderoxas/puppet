@@ -1,4 +1,4 @@
-class sdk::java inherits sdk ($java_sdk_version) {
+class sdk::java ($java_sdk_version) inherits sdk  {
   #any java specific implementation can go here...
 
   notify {"Java SDK Version: $java_sdk_version ":
