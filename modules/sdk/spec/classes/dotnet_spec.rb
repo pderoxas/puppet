@@ -2,8 +2,19 @@ require 'spec_helper'
 
 describe 'sdk::dotnet' do
 
-  it { should contain_file('dotnetsdkdir') }
+  #set mock values for parameters
+  let(:params) { {:dotnet_sdk_version => 'v1.0.0'} }
 
-  it { should contain_file('dotnet_sdk_version_file') }
+  it do
+    should contain_file('dotnetsdkdir').with({
+      'ensure'  => 'directory',
+      'path'    => '/paypal/sdk',
+    })
+    
+    should contain_file('dotnet_sdk_version_file').with({
+      'ensure'  => 'file',
+      'path'    => '/paypal/sdk/v1.0.0.txt',
+    })
+  end
 
 end
