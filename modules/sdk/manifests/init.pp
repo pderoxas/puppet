@@ -1,4 +1,4 @@
-class sdk {
+class sdk ($sdk_platform) {
   notify {"GEO Location=${geo_location}, Store Number=${store_number}":
     withpath => true,
   }
@@ -13,8 +13,6 @@ class sdk {
     purge   => true,
   }
 
-  $sdk_platform = hiera('sdk_platform')
-  
   notify {"SDK Platform: $sdk_platform ":
     withpath => true,
   }
