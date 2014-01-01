@@ -18,7 +18,7 @@
 
 # Define filebucket 'main':
 filebucket { 'main':
-  server => 'store-01-server.localdomain',
+  server => 'jim-henson',
   path   => false,
 }
 
@@ -39,10 +39,11 @@ node default {
   # This is where you can declare classes for all nodes.
   # Example:
   #   class { 'my_class': }
-  
+ 
+  #will get this data from hieradata folder 
   class {'sdk' : 
-          sdk_platform => hiera('sdk_platform'),
-          sdk_version => hiera('sdk_version'),
+          sdk_platform => hiera('platform'),
+          sdk_version => hiera('version'),
         }
   
 }

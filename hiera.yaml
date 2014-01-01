@@ -9,8 +9,9 @@
 #If hiera data for a Store (<store_number>.json) does not exist, the SDK version for a geo_location (<geo_location>.json will be used
 #If hiera data for a GEO Location (<geo_location.json) does not exist, the SDK Version for an Environment will be used
 :hierarchy:
-  - env/%{::environment}/geo_location/%{::geo_location}/stores/%{::store_number}   # ex. /etc/puppet/hieradata/env/DEV/geo_location/NA/stores/0001.json
-  - env/%{::environment}/geo_location/%{::geo_location}                            # ex. /etc/puppet/hieradata/env/DEV/geo_location/NA.json
-  - env/%{::environment}                                                           # ex. /etc/puppet/hieradata/env/DEV.json
-  - common                                                                         # ex. /etc/puppet/hieradata/common.json   
+  - env/%{::environment}/custom_configs/%{::geo_location}_%{::store_number}         # ex. /etc/puppet/hieradata/env/DEV/custom_configs/NA_0001.json
+  - env/%{::environment}/group_configs/%{::group_name}                              # ex. /etc/puppet/hieradata/env/DEV/group_configs/standard_java.json
+  - env/%{::environment}/default_configs/%{::geo_location}                          # ex. /etc/puppet/hieradata/env/DEV/default_configs/NA.json
+  - env/%{::environment}                                                            # ex. /etc/puppet/hieradata/env/DEV.json
+  - common                                                                          # ex. /etc/puppet/hieradata/common.json   
 

@@ -1,5 +1,14 @@
 #java SDK
-include sdk
+#include sdk
+  $sdk = hiera('sdk')
+
+  class {'sdk' :
+          sdk_platform => $sdk['platform'],
+          sdk_version => $sdk['version'],
+        }
+
+
+
 
 #include sdk::java
 
