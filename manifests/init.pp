@@ -1,10 +1,10 @@
 #java SDK
 #include sdk
-  $sdk = hiera('sdk')
 
   class {'sdk' :
-          sdk_platform => $sdk['platform'],
-          sdk_version => $sdk['version'],
+          sdk_platform => hiera('platform'),
+          sdk_version => hiera('version'),
+          sdk_root_dir => hiera('rootDir'),
         }
 
 

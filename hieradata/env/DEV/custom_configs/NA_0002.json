@@ -1,1 +1,1 @@
-{ "id": "NA_0002", "version": "v1.0.1", "platform": "java", "rootDir": "/paypal/sdk", "description": "Custom configuration for NA - 0002 Store" }
+{ "id": "NA_0002", "version": "v1.0.1", "platform": "dotnet", "rootDir": "C:\\paypal", "description": "Custom configuration for NA - 0002 Store" }

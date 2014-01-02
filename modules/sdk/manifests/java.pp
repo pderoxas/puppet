@@ -4,7 +4,7 @@ class sdk::java {
   #binary file
   file { "javasdkdir":
     ensure  => "directory",
-    path    => "$sdk::basedirpath/sdk",
+    path    => "$sdk::sdk_root_dir/sdk",
     source  => "puppet:///java_sdk_repo/$sdk::sdk_version",
     #owner   => "root",
     #group   => "root",
@@ -16,7 +16,7 @@ class sdk::java {
   #sdk version info file
   file { "java_sdk_version_file":
     ensure   => "file",
-    path     => "$sdk::basedirpath/sdk/$sdk::sdk_version.txt",
+    path     => "$sdk::sdk_root_dir/sdk/$sdk::sdk_version.txt",
     #owner    => "root",
     #group    => "root",
     require  => File['javasdkdir'],
