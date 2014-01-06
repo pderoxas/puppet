@@ -1,1 +1,1 @@
-{ "id": "STANDARD_JAVA", "version": "v1.0.0", "platform": "java", "rootDir": "/paypal/sdk", "description": "Standard Java SDK Configuration" }
+{ "id": "STANDARD_JAVA", "sdk": { "id": 10, "version": "v1.0.1", "platform": "java" }, "rootDir": "/paypal", "description": "Standard Java config for most locations" }
