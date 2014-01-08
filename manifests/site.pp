@@ -18,7 +18,7 @@
 
 # Define filebucket 'main':
 filebucket { 'main':
-  server => 'store-01-server.localdomain',
+  server => 'shonuff.localdomain',
   path   => false,
 }
 
