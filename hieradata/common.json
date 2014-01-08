@@ -1,6 +1,1 @@
-{ 
-  "sdk_version":"v1.0.0",
-  "sdk_platform":"java",
-  "jre_version":"1.7.0_45",
-  "puppet_version":"3.3.2"
-}
+{ "sdk": { "id": 9, "version": "v1.0.0", "platform": "java" }, "rootDir": "/paypal", "description": "Default configuration for ALL" }

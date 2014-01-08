@@ -1,0 +1,1 @@
+{ "id": "STANDARD_DOTNET", "sdk": { "id": 16, "version": "v1.0.2", "platform": "dotnet" }, "rootDir": "C:\\paypal", "description": "Standard .NET config for most locations" }

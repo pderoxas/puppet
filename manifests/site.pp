@@ -18,7 +18,7 @@
 
 # Define filebucket 'main':
 filebucket { 'main':
-  server => 'shonuff.localdomain',
+  server => 'jim-henson',
   path   => false,
 }
 
@@ -39,10 +39,26 @@ node default {
   # This is where you can declare classes for all nodes.
   # Example:
   #   class { 'my_class': }
+ 
+  #will get this data from hieradata folder
+
+  #{
+     #"id":"NA_0001",
+     #"sdk":{
+        #"id":12,
+        #"version":"v1.0.3",
+        #"platform":"java"
+     #},
+     #"rootDir":"/paypal",
+     #"description":"Custom config for the NA-0001 store location."
+  #} 
   
+  #get the sdk object from the hiera data
+  $sdk_hiera_obj=hiera('sdk')
   class {'sdk' : 
-          sdk_platform => hiera('sdk_platform'),
-          sdk_version => hiera('sdk_version'),
+          sdk_platform => $sdk_hiera_obj['platform'],
+          sdk_version => $sdk_hiera_obj['version'],
+          sdk_root_dir => hiera('rootDir'),
         }
   
 }

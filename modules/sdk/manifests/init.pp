@@ -1,17 +1,13 @@
-class sdk ($sdk_platform, $sdk_version) {
-  notify {"GEO Location=${geo_location}, Store Number=${store_number}, SDK Platform: $sdk_platform, SDK Version: $sdk_version":
+class sdk ($sdk_platform, $sdk_version, $sdk_root_dir) {
+  notify {"GEO Location=${::geo_location}, Store Number=${::store_number}, Group Name: ${::group_name}, SDK Platform: $sdk_platform, SDK Version: $sdk_version, SDK Root Dir: $sdk_root_dir":
     withpath => true,
   }
 
-  case $operatingsystem {
-      centos, redhat, debian, ubuntu: { $basedirpath = '/paypal' }
-      windows: { $basedirpath = 'C:\paypal' }
-    }
 
   #base directory of sdk
   file { "basedir":
     ensure  => "directory",
-    path    => $basedirpath,
+    path    => $sdk_root_dir,
     recurse => true,
     purge   => true,
   }
@@ -21,6 +17,12 @@ class sdk ($sdk_platform, $sdk_version) {
       'dotnet':   { include sdk::dotnet }
       default:    { include sdk::java }
   }
+
+  case $operatingsystem {
+      centos, redhat, debian, ubuntu: { include sdk::linux }
+      windows: { include sdk::windows }
+  }
+
 
 }
 
