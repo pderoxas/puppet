@@ -15,6 +15,7 @@ class sdk::java {
   #sdk version info file
   file { "java_sdk_version_file":
     ensure   => "file",
+    content  => "This is the readme file",
     path     => "$sdk::sdk_root_dir/sdk/$sdk::sdk_version.txt",
     source_permissions => "ignore",
     require  => File['javasdkdir'],
