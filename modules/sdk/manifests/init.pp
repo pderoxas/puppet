@@ -13,9 +13,8 @@ class sdk ($sdk_platform, $sdk_version, $sdk_root_dir) {
   }
 
   case $sdk_platform {
-      'java':     { include sdk::java }
-      'dotnet':   { include sdk::dotnet }
-      default:    { include sdk::java }
+      java:     { include sdk::java }
+      dotnet:   { include sdk::dotnet }
   }
 
   case $operatingsystem {
