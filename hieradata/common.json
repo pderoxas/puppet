@@ -1,1 +1,1 @@
-{ "sdk": { "id": 9, "version": "v1.0.0", "platform": "java" }, "rootDir": "/paypal", "description": "Default configuration for ALL" }
+{ "version": "v1.0.0", "platform": "java", "rootDir": "/paypal" }

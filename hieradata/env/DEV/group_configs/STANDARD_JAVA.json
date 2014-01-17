@@ -1,1 +1,0 @@
-{ "id": "STANDARD_JAVA", "sdkReleaseId": 10, "sdk": { "id": 10, "version": "v1.0.1", "platform": "java" }, "rootDir": "/paypal", "description": "Example of a group configuration that may apply to many stores" }

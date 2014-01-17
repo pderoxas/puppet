@@ -6,10 +6,10 @@
   :datadir: /etc/puppet/hieradata
 
 :hierarchy:
-  - env/%{::environment}/store_configs/%{::geo_location}_%{::store_number}         
-  - env/%{::environment}/group_configs/%{::group_name}                              
-  - env/%{::environment}/geo_location_configs/%{::geo_location}                          
-  - env/%{::environment}                                                            
+  - store_configs/%{::geo_location}/%{::store_number}
+                           
+  - geo_location_configs/%{::geo_location}                          
+                                                            
   - common                                                                             
 
 

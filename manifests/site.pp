@@ -53,14 +53,15 @@ node default {
      #"description":"Custom config for the NA-0001 store location."
   #} 
   
-  #get the sdk object from the hiera data
-  $sdk_hiera_obj=hiera('sdk')
-  class {'sdk' : 
-          sdk_platform => $sdk_hiera_obj['platform'],
-          sdk_version => $sdk_hiera_obj['version'],
+  class {'sdk' :
+          #sdk_platform => $sdk_hiera_obj['platform'],
+          #sdk_version => $sdk_hiera_obj['version'],
+          #sdk_root_dir => hiera('rootDir'),
+          sdk_platform => hiera('platform'),
+          sdk_version  => hiera('version'),
           sdk_root_dir => hiera('rootDir'),
-        }
-  
+
+        }  
 }
 
 #node 'store-01-reg-01.home' {
